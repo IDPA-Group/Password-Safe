@@ -8,6 +8,7 @@ public class PasswordsafeApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(PasswordsafeApplication.class, args);
+
 	}
 
 }
