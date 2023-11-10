@@ -1,4 +1,4 @@
-package ch.bbw.passwordsafe.blockDB;
+package ch.bbw.passwordsafe.DB.block;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
