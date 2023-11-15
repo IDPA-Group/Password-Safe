@@ -2,6 +2,7 @@
 import './App.css'
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import LoginPage from './components/loginPage';
+import PasswordSafe from './components/passwordSafe';
 
 function App() {
 
@@ -9,11 +10,8 @@ function App() {
     <>
     <BrowserRouter>
             <Routes>
-              <Route path="/" element={<LoginPage/>}>
-                <Route/>
-               
-
-              </Route>
+              <Route path='/' element={<LoginPage/>}/>
+                <Route path='/safe' element={<PasswordSafe/>}/>
             </Routes>
           </BrowserRouter>
       
