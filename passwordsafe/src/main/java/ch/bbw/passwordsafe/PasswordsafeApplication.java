@@ -2,6 +2,9 @@ package ch.bbw.passwordsafe;
 
 import ch.bbw.passwordsafe.DB.block.Block;
 import ch.bbw.passwordsafe.DB.block.BlockRepository;
+import ch.bbw.passwordsafe.DB.register.Login;
+import ch.bbw.passwordsafe.DB.register.LoginRepository;
+import org.apache.juli.logging.Log;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -15,7 +18,10 @@ public class PasswordsafeApplication implements CommandLineRunner {
 
 
 	@Autowired
-	private BlockRepository repository;
+	private BlockRepository blockRepository;
+
+	@Autowired
+	private LoginRepository loginRepository;
 
 	public static void main(String[] args) {
 		SpringApplication.run(PasswordsafeApplication.class, args);
@@ -25,18 +31,24 @@ public class PasswordsafeApplication implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception{
-		repository.deleteAll();
+		blockRepository.deleteAll();
+		loginRepository.deleteAll();
 
 		// Save Blocks provisionally
-		repository.save(new Block("Chrome", "justindav505", "123123123"));
-		repository.save(new Block("Youtube","justindavid", "password123456"));
-		repository.save(new Block("Youtube","davidhofi", "passw"));
+		blockRepository.save(new Block("Chrome", "justindav505", "123123123"));
+		blockRepository.save(new Block("Youtube","justindavid", "password123456"));
+		blockRepository.save(new Block("Youtube","davidhofi", "passw"));
 
+
+		loginRepository.save(new Login("Test", "123123"));
+		loginRepository.save(new Login("Tes3t", "1231234"));
+
+		System.out.println(loginRepository.findByMastername("Test"));
 
 		//fetch all Blocks
 		System.out.println("Customers found with findAll()");
 		System.out.println("-------------------------------");
-		for (Block block : repository.findAll()){
+		for (Block block : blockRepository.findAll()){
 			System.out.println(block);
 		}
 		System.out.println();
@@ -45,11 +57,11 @@ public class PasswordsafeApplication implements CommandLineRunner {
 		// fetch an individual customer
 		System.out.println("Block found with findByFirstName('justindav505'):");
 		System.out.println("--------------------------------");
-		System.out.println(repository.findByUsername("justindav505"));
+		System.out.println(blockRepository.findByUsername("justindav505"));
 
 		System.out.println("Customers found with findByLastName('Smith'):");
 		System.out.println("--------------------------------");
-		for (Block block : repository.findByTitle("Youtube")) {
+		for (Block block : blockRepository.findByTitle("Youtube")) {
 			System.out.println(block);
 		}
 	}
