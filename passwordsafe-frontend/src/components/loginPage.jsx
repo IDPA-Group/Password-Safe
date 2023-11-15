@@ -1,3 +1,5 @@
+import passwordSafe from "./passwordSafe"
+
 function LoginPage(){
     return(
         <>
