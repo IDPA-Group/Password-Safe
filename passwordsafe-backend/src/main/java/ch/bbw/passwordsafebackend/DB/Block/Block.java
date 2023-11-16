@@ -1,4 +1,5 @@
-package ch.bbw.passwordsafe.DB.block;
+package ch.bbw.passwordsafebackend.DB.Block;
+
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -32,3 +33,4 @@ public class Block {
                 '}';
     }
 }
+

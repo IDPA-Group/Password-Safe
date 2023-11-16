@@ -1,4 +1,4 @@
-package ch.bbw.passwordsafe.DB.block;
+package ch.bbw.passwordsafebackend.DB.Block;
 
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.stereotype.Repository;
