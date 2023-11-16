@@ -1,4 +1,5 @@
-package ch.bbw.passwordsafe.DB.register;
+package ch.bbw.passwordsafebackend.DB.Register;
+
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;

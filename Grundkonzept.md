@@ -38,6 +38,14 @@ Die Password-Manager-Applikation verbessert die Sicherheit und ermöglicht eine 
 
 ### Justin Calle
 
+Reflexion von Tätigkeiten:
+
+Am Backend und der Verknüpfung mit MongoDB weitergearbeitet. Neue Klassen erstellt und Verknüpfung nun Vollständig. Angefangen mit RESTController für Login und Backend fungiert mit der Datenbank. Probleme mit der Datenbank. Es verknüpft mit einer Datenbank "Test" anstelle von "passwordsafe".
+
 ### David Hoftstetter
 
+
+Reflexion von Tätigkeiten.
+
+Ich habe am Frontend gearbeitet, die Login Seite ist fertig, nur noch der Button muss mit der Password Safe Seite verknüpft werden. Bei der Password Safe Seite kann man mittlerweile Blocks hinzufügen und erstellen. Jedoch noch nicht löschen oder bearbeiten.
 
