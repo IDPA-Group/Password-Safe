@@ -9,7 +9,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.crypto.Cipher;
-import javax.crypto.SecretKey;
 import javax.crypto.SecretKeyFactory;
 import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.PBEKeySpec;
@@ -92,6 +91,25 @@ public class BlockController {
 
             } else {
                 return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Mastername not found.");
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("An error occurred while processing the request.");
+        }
+    }
+
+    // Delete a Block by id
+    @DeleteMapping("/deleteBlock/{id}")
+    ResponseEntity<?> deleteBlock(@PathVariable String id) {
+        try {
+            // Check if the block exists
+            if (repository.existsById(id)) {
+                // Delete the block by id
+                repository.deleteById(id);
+                return ResponseEntity.ok("Block deleted successfully");
+            } else {
+                return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Block not found");
             }
 
         } catch (Exception e) {
