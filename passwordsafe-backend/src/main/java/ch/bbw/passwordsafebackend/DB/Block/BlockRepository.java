@@ -9,6 +9,6 @@ import java.util.List;
 public interface BlockRepository extends MongoRepository<Block, String> {
 
     public Block findByUsername(String username);
-    public List<Block> findByTitle(String title);
+    public List<Block> findByOwner(String owner);
 
 }
