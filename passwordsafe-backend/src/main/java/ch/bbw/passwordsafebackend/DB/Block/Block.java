@@ -14,11 +14,13 @@ public class Block {
     public String title;
     public String username;
     public String password;
+    public String owner;
 
-    public Block(String title, String username, String password) {
+    public Block(String title, String username, String password, String owner) {
         this.title = title;
         this.username = username;
         this.password = password;
+        this.owner = owner;
     }
 
     public String getId() {
@@ -53,6 +55,14 @@ public class Block {
         this.password = password;
     }
 
+    public String getOwner() {
+        return owner;
+    }
+
+    public void setOwner(String owner) {
+        this.owner = owner;
+    }
+
     @Override
     public String toString() {
         return "Block{" +
@@ -60,6 +70,7 @@ public class Block {
                 ", title='" + title + '\'' +
                 ", username='" + username + '\'' +
                 ", password='" + password + '\'' +
+                ", owner='" + owner + '\'' +
                 '}';
     }
 }
