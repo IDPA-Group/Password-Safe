@@ -4,6 +4,8 @@ import ch.bbw.passwordsafebackend.DB.Block.Block;
 import ch.bbw.passwordsafebackend.DB.Block.BlockRepository;
 import ch.bbw.passwordsafebackend.DB.Register.Login;
 import ch.bbw.passwordsafebackend.DB.Register.LoginRepository;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -29,13 +31,11 @@ public class BlockController {
     }
 
     @PostMapping(value = "/createBlock", consumes = "application/json", produces = "application/json")
-    Block createBlock(@RequestBody Block block) {
+    ResponseEntity<?> createBlock(@RequestBody Block block) {
         try {
-            // Retrieve the Login object based on the mastername
-            String mastername = block.owner; // Replace with the actual mastername
+            String mastername = block.getOwner();
             Login login = loginRepository.findByMastername(mastername);
 
-            // Check if the mastername exists
             if (login != null) {
 
                 String hashedMasterPassword = login.getMasterpassword();
@@ -55,15 +55,16 @@ public class BlockController {
                 String encryptedText = Base64.getEncoder().encodeToString(encryptedBytes);
                 block.setPassword(encryptedText);
 
+                repository.save(block);
+                return ResponseEntity.ok(block);
+
             } else {
-                // Handle the case where the mastername is not found
-                System.err.println("Mastername not found.");
+                return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Mastername not found.");
             }
 
         } catch (Exception e) {
             e.printStackTrace();
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("An error occurred while processing the request.");
         }
-        return repository.save(block);
     }
 }
-
