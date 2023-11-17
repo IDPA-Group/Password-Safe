@@ -99,6 +99,47 @@ public class BlockController {
         }
     }
 
+    // Update a Block by id
+    @PutMapping("/updateBlock/{id}")
+    ResponseEntity<?> updateBlock(@PathVariable String id, @RequestBody Block updatedBlock) {
+        try {
+            // Check if the block exists
+            if (repository.existsById(id)) {
+                // Retrieve the existing block
+                Block existingBlock = repository.findById(id).orElse(null);
+
+                if (existingBlock != null) {
+                    // Update only the provided fields
+                    if (updatedBlock.getTitle() != null) {
+                        existingBlock.setTitle(updatedBlock.getTitle());
+                    }
+                    if (updatedBlock.getUsername() != null) {
+                        existingBlock.setUsername(updatedBlock.getUsername());
+                    }
+                    if (updatedBlock.getPassword() != null) {
+                        existingBlock.setPassword(updatedBlock.getPassword());
+                    }
+                    if (updatedBlock.getOwner() != null) {
+                        existingBlock.setOwner(updatedBlock.getOwner());
+                    }
+
+                    // Save the updated block
+                    repository.save(existingBlock);
+
+                    return ResponseEntity.ok("Block updated successfully");
+                } else {
+                    return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error updating the block");
+                }
+            } else {
+                return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Block not found");
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("An error occurred while processing the request.");
+        }
+    }
+
     // Delete a Block by id
     @DeleteMapping("/deleteBlock/{id}")
     ResponseEntity<?> deleteBlock(@PathVariable String id) {
