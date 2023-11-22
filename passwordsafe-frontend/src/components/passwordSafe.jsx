@@ -1,14 +1,15 @@
 import React, { useState } from 'react';
 import LoginPage from './loginPage';
 import { Link } from 'react-router-dom';
+import {useHistory} from "react-router-dom"
 
 
 
 function PasswordSafe() {
-    const history = useHistory();
   const [blocks, setBlocks] = useState([
     
   ]);
+
 
   const handleAddBlock = () => {
     const newBlock = {
@@ -23,9 +24,9 @@ function PasswordSafe() {
     document.getElementById('usernameInput').value = '';
     document.getElementById('passwordInput').value = '';
   };
-
+  const history = useHistory();
   const handleLogout = () => {
-  
+    history.push('/');
 
   };
 
@@ -34,12 +35,11 @@ function PasswordSafe() {
       Plattform: {block.title}, Username: {block.username}, Password: {block.password}
     </li>
   )
-  
-  );
-
+  )
   return (
+
     <>
- < className="LogoutButton" onClick={handleLogout}>
+      <button className="LogoutButton" onClick={handleLogout}>
         Log Out
       <Link ></Link>
       <ul>{listItems}</ul>
@@ -51,14 +51,15 @@ function PasswordSafe() {
           Username <input type="text" id="usernameInput" />
         </p>
         <p>
-          Password <input type="text" id="passwordInput" />
+          Password <input type="password" id="passwordInput" />
         </p>
       </div>
       <button className="AddButton" onClick={handleAddBlock}>
         Add
       </button>
+    </button>
     </>
   );
-}
 
+}
 export default PasswordSafe;
