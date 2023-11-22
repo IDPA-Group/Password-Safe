@@ -1,6 +1,6 @@
-package ch.bbw.passwordsafe.DB.register;
+package ch.bbw.passwordsafebackend.DB.Register;
 
-import org.apache.juli.logging.Log;
+
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.stereotype.Repository;
 

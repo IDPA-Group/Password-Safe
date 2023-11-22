@@ -1,4 +1,5 @@
-package ch.bbw.passwordsafe.DB.register;
+package ch.bbw.passwordsafebackend.DB.Register;
+
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -17,6 +18,29 @@ public class Login {
         this.masterpassword = masterpassword;
     }
 
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public String getMastername() {
+        return mastername;
+    }
+
+    public void setMastername(String mastername) {
+        this.mastername = mastername;
+    }
+
+    public String getMasterpassword() {
+        return masterpassword;
+    }
+
+    public void setMasterpassword(String masterpassword) {
+        this.masterpassword = masterpassword;
+    }
 
     @Override
     public String toString() {
