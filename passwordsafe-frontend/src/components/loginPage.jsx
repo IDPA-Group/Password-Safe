@@ -5,7 +5,7 @@ import axios from 'axios';
 
 const loginUser = async (credentials) => {
     try {
-      const response = await axios.post('http://localhost:3005/users/login', credentials, {
+      const response = await axios.post('http://localhost:8080/login', credentials, {
         headers: {
           'Content-Type': 'application/json'
         }
@@ -18,22 +18,22 @@ const loginUser = async (credentials) => {
     }
 };
 
-function LoginPage(){
+function LoginPage({setUserToken}){
 
-    const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
+    const [mastername, setMastername] = useState('');
+    const [masterpassword, setMasterpassword] = useState('');
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     try {
       const userData = await loginUser({
-        username,
-        password
+        mastername,
+        masterpassword
       });
 
       console.log('User data:', userData);
-      setUserToken(userData.token);
+      setUserToken(userData);
 
     } catch (error) {
       console.error('Login failed:', error);
@@ -46,11 +46,11 @@ function LoginPage(){
         <form onSubmit={handleSubmit}>
             <label>
                 <p>Username</p>
-                <input type="text" value={username} onChange={(e) => setUsername(e.target.value)} />
+                <input type="text" value={mastername} onChange={(e) => setMastername(e.target.value)} />
             </label>
             <label>
                 <p>Password</p>
-                <input type="password" value={password} autoComplete="new-password" onChange={(e) => setPassword(e.target.value)} />
+                <input type="password" value={masterpassword} autoComplete="new-password" onChange={(e) => setMasterpassword(e.target.value)} />
             </label>
             <div>
                 <button type="submit">Submit</button>
