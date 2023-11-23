@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import LoginPage from './loginPage';
 import { Link } from 'react-router-dom';
-import {useHistory} from "react-router-dom"
+import { useNavigate } from "react-router-dom"
 
 
 
@@ -24,9 +24,10 @@ function PasswordSafe() {
     document.getElementById('usernameInput').value = '';
     document.getElementById('passwordInput').value = '';
   };
-  const history = useHistory();
+  const history = useNavigate();
+
   const handleLogout = () => {
-    history.push('/');
+    history('/');
 
   };
 
@@ -39,9 +40,9 @@ function PasswordSafe() {
   return (
 
     <>
-      <button className="LogoutButton" onClick={handleLogout}>
-        Log Out
+    
       <Link ></Link>
+      <button className='LogoutButton' onClick={handleLogout}>Log Out</button>
       <ul>{listItems}</ul>
       <div className="Block">
         <p>
@@ -56,7 +57,6 @@ function PasswordSafe() {
       </div>
       <button className="AddButton" onClick={handleAddBlock}>
         Add
-      </button>
     </button>
     </>
   );

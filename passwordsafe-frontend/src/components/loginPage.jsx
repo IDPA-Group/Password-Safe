@@ -3,42 +3,9 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import axios from 'axios';
 
-const loginUser = async (credentials) => {
-    try {
-      const response = await axios.post('http://localhost:3005/users/login', credentials, {
-        headers: {
-          'Content-Type': 'application/json'
-        }
-      });
-  
-      return response.data;
-    } catch (error) {
-      console.error('Login failed:', error);
-      throw error;
-    }
-};
+
 
 function LoginPage(){
-
-    const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-
-    try {
-      const userData = await loginUser({
-        username,
-        password
-      });
-
-      console.log('User data:', userData);
-      setUserToken(userData.token);
-
-    } catch (error) {
-      console.error('Login failed:', error);
-    }
-  };
 
     return(
         <>
