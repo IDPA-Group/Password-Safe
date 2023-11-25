@@ -2,6 +2,7 @@ import passwordSafe from "./passwordSafe"
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import axios from 'axios';
+import Register from "./Register";
 
 const loginUser = async (credentials) => {
     try {
@@ -56,6 +57,7 @@ function LoginPage({setUserToken}){
                 <button type="submit">Submit</button>
             </div>
         </form>
+        <Register />
         </>
     )
 }

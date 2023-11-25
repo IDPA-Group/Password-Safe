@@ -4,6 +4,7 @@ import LoginPage from './components/loginPage';
 import PasswordSafe from './components/passwordSafe';
 import { useState, useEffect } from 'react';
 
+
 function App() {
 
   const storedToken = JSON.parse(sessionStorage.getItem('token'));
@@ -24,7 +25,8 @@ function App() {
     <BrowserRouter>
       <Routes>
         {!userToken ? (
-          <Route path='/*' element={<LoginPage setUserToken={handleLogin} />} />
+          <Route path='/*' element={<LoginPage setUserToken={handleLogin} />
+        } />
         ) : (
           <>
             <Route path='/' element={<PasswordSafe />} />
