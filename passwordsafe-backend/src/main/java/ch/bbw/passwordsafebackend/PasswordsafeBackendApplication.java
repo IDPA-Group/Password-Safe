@@ -28,8 +28,7 @@ public class PasswordsafeBackendApplication implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception{
-		blockRepository.deleteAll();
-		loginRepository.deleteAll();
+
 
 	}
 
