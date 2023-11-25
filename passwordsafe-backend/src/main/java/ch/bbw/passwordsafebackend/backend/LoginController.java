@@ -40,7 +40,8 @@ public class LoginController {
 
         if (storedLogin != null) {
             if (BCrypt.checkpw(requestLogin.getMasterpassword(), storedLogin.getMasterpassword())) {
-                return ResponseEntity.ok("Login successful!");
+                String token = requestLogin.mastername;
+                return ResponseEntity.ok(token);
             } else {
                 return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Incorrect password");
             }
