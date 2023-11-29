@@ -1,5 +1,6 @@
 import axios from 'axios';
 import React, { useState } from 'react';
+import '../styling/RegisterStyle.css'
 
 const Register = () => {
   const [mastername, setMastername] = useState('');
@@ -39,18 +40,22 @@ const Register = () => {
 
   return (
     <div>
-      <h2>Register</h2>
-      <form onSubmit={handleRegister}>
+      <h1 className='titleRegister'>Register</h1>
+      <form onSubmit={handleRegister} className='formRegister'>
         <p>
           Username{' '}
+          <br />
+
           <input type="text" value={mastername} onChange={(e) => setMastername(e.target.value)} />
         </p>
         <p>
           Password{' '}
+          <br />
           <input type="password" value={masterpassword} onChange={(e) => setMasterPassword(e.target.value)} />
         </p>
+        
         {error && <p style={{ color: 'red' }}>{error}</p>}
-        <button type="submit">Register</button>
+        <button className= "RegisterButton" type="submit">Register</button>
       </form>
     </div>
   );

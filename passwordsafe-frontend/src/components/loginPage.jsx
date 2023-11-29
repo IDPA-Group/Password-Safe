@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import axios from 'axios';
 import Register from "./Register";
+import '../styling/LoginStyle.css'
 
 const loginUser = async (credentials) => {
     try {
@@ -43,21 +44,29 @@ function LoginPage({setUserToken}){
 
     return(
         <>
-        <h1>Log in</h1>
-        <form onSubmit={handleSubmit}>
-            <label>
-                <p>Username</p>
-                <input type="text" value={mastername} onChange={(e) => setMastername(e.target.value)} />
-            </label>
-            <label>
-                <p>Password</p>
-                <input type="password" value={masterpassword} autoComplete="new-password" onChange={(e) => setMasterpassword(e.target.value)} />
-            </label>
-            <div>
-                <button type="submit">Submit</button>
-            </div>
-        </form>
-        <Register />
+
+          
+    
+        <h1 className="LoginPageTitle">Login</h1>
+        <div className="login-Container">
+          <form className= "formLogin" onSubmit={handleSubmit}>
+              <label className="labelLogin">
+                  <p>Username</p>
+                  <input type="text" value={mastername} onChange={(e) => setMastername(e.target.value)} />
+              </label>
+              <label className="labelLogin">
+                  <p>Password</p>
+                  <input type="password" value={masterpassword} autoComplete="new-password" onChange={(e) => setMasterpassword(e.target.value)} />
+              </label>
+              <br />
+              <div>
+                  <button className= "LoginButton" type="submit">Login</button>
+              </div>
+          </form>
+          <Register />
+        </div>
+        
+     
         </>
     )
 }
