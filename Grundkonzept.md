@@ -49,3 +49,16 @@ Reflexion von Tätigkeiten.
 
 Ich habe am Frontend gearbeitet, die Login Seite ist fertig, nur noch der Button muss mit der Password Safe Seite verknüpft werden. Bei der Password Safe Seite kann man mittlerweile Blocks hinzufügen und erstellen. Jedoch noch nicht löschen oder bearbeiten.
 
+# Reflexion 22.11.2023
+
+### Justin Calle
+
+
+Das Backend wurde umfassend entwickelt, um eine nahtlose Verknüpfung mit dem Frontend zu gewährleisten. Sämtliche CRUD-Funktionen für die Passwörter sowie die Funktionen für das Login und die Registrierung wurden erfolgreich implementiert. Das Masterpasswort wird sicher durch BCrypt gehandhabt, während die Passwortblöcke effektiv verschlüsselt sind.
+
+Darüber hinaus wurde besonderes Augenmerk darauf gelegt, die Systeme für die sichere Verwaltung von Passwörtern zu optimieren. Die Implementierung umfasst fortschrittliche Verschlüsselungstechniken, um die Vertraulichkeit der Nutzerdaten zu gewährleisten.
+
+
+### David Calle
+
+
