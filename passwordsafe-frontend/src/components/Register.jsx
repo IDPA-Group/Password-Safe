@@ -32,6 +32,9 @@ const Register = () => {
       console.error(error);
       setError('Registration failed. Please try again.'); 
     }
+    setMastername('')
+    setMasterPassword('')
+
   };
 
   return (
