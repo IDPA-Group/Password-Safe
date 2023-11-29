@@ -42,7 +42,7 @@ Reflexion von Tätigkeiten:
 
 Am Backend und der Verknüpfung mit MongoDB weitergearbeitet. Neue Klassen erstellt und Verknüpfung nun Vollständig. Angefangen mit RESTController für Login und Backend fungiert mit der Datenbank. Probleme mit der Datenbank. Es verknüpft mit einer Datenbank "Test" anstelle von "passwordsafe".
 
-### David Hoftstetter
+### David Hofstetter
 
 
 Reflexion von Tätigkeiten.
@@ -59,6 +59,10 @@ Das Backend wurde umfassend entwickelt, um eine nahtlose Verknüpfung mit dem Fr
 Darüber hinaus wurde besonderes Augenmerk darauf gelegt, die Systeme für die sichere Verwaltung von Passwörtern zu optimieren. Die Implementierung umfasst fortschrittliche Verschlüsselungstechniken, um die Vertraulichkeit der Nutzerdaten zu gewährleisten.
 
 
-### David Calle
+### David Hofstetter
 
+
+Das Frontend-Projekt wurde erfolgreich abgeschlossen, alle erforderlichen Komponenten sind implementiert und das Styling wurde mittels CSS professionell umgesetzt. Der reibungslose Betrieb des Logout-Buttons, der mithilfe der useNavigate()-Funktion erstellt wurde, rundet die Frontend-Entwicklung erfolgreich ab.
+
+Trotz einiger anfänglicher Herausforderungen beim Styling konnten sämtliche Schwierigkeiten durch gezielte Recherche, insbesondere durch Google, erfolgreich überwunden werden.
 
