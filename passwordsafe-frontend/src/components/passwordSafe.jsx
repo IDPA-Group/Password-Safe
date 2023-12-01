@@ -101,10 +101,10 @@ function PasswordSafe() {
         // Display block details and buttons
         <>
           Plattform: {block.title}, Username: {block.username}, Password: {block.password}
-          <button className='delete-Button' onClick={() => handleDeleteBlock(block.id)}>
+          <button className='del-Button' onClick={() => handleDeleteBlock(block.id)}>
             delete
           </button>
-          <button className='edit-Button' onClick={() => handleEditBlock(block.id)}>
+          <button className='ed-Button' onClick={() => handleEditBlock(block.id)}>
             edit
           </button>
         </>
